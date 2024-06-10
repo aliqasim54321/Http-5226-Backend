@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MedicalRegistration1.Models.PatientDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+@foreach(var patient in Model)
+ {
+                <h2><a href="/Patient/Details/@patient.PatientId">First Name: @patient.PatientFirstName</a> </h2>
+                <h2>Last Name: @patient.PatientLastName</h2>
+                <div> Blood Group : @patient.BloodGroupName</div>
+
+
+            }
+

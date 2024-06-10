@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MedicalRegistration1.Models;
+using System.Diagnostics;
 
 namespace MedicalRegistration1.Controllers
 {
@@ -21,9 +22,9 @@ namespace MedicalRegistration1.Controllers
         public IEnumerable<PatientDto> ListPatients()
         {
             List<Patient> Patients = db.Patients.ToList();
-            List<PatientDto> patients = new List<PatientDto>();
+            List<PatientDto> PatientDtos = new List<PatientDto>();
 
-            Patients.ForEach(p => PatientDto.Add(new PatientDto()
+            Patients.ForEach(p => PatientDtos.Add(new PatientDto()
             {
                 PatientId = p.PatientId,
                 PatientFirstName = p.PatientFirstName,
@@ -31,21 +32,30 @@ namespace MedicalRegistration1.Controllers
                 BloodGroupName = p.BloodGroup.BloodGroupName
                
             }));
-            return PatientDto;
+            return PatientDtos;
         }
 
         // GET: api/PatientsData/FindPatient/5
         [ResponseType(typeof(Patient))]
         [HttpGet]
         public IHttpActionResult FindPatient(int id)
+
         {
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
+            Patient Patient = db.Patients.Find(id);
+            PatientDto PatientDto = new PatientDto()
+            {
+                PatientId = Patient.PatientId,
+                PatientFirstName = Patient.PatientFirstName,
+                PatientLastName = Patient.PatientLastName,
+                BloodGroupName = Patient.BloodGroup.BloodGroupName
+            };
+        
+            if (Patient == null)
             {
                 return NotFound();
             }
 
-            return Ok(patient);
+            return Ok(PatientDto);
         }
 
         // POST: api/PatientsData/UpdatePatient/5
@@ -54,6 +64,7 @@ namespace MedicalRegistration1.Controllers
         [HttpPost]
         public IHttpActionResult UpdatePatient(int id, Patient patient)
         {
+            Debug.WriteLine("i have reached the update patient method");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -115,7 +126,7 @@ namespace MedicalRegistration1.Controllers
             db.Patients.Remove(patient);
             db.SaveChanges();
 
-            return Ok(patient);
+            return Ok(  );
         }
 
         protected override void Dispose(bool disposing)
