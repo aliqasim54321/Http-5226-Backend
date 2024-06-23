@@ -14,15 +14,22 @@ Notification System: Sends notifications to patients and doctors regarding appoi
 
 # Technologies Used
 Backend: ASP.NET Web API, Entity Framework
+
 Frontend: HTML, CSS, Bootstrap
+
 Database: Microsoft SQL Server
+
 Tools and Libraries: Visual Studio
 
 # API Endpoints
 List Patients: GET /api/PatientsData/ListPatients
+
 Find Patient: GET /api/PatientsData/FindPatient/{id}
+
 Add Patient: POST /api/PatientsData/AddPatient
+
 Update Patient: POST /api/PatientsData/UpdatePatient/{id}
+
 Delete Patient: POST /api/PatientsData/DeletePatient/{id}
 
 # Retriving data from yhe command prompt
@@ -36,9 +43,11 @@ Delete an Patient curl -d "" https://localhost:44324/api/Patientdata/deletePatie
 
 Update an Patient (existing Patient info including id must be included in Patient.json) curl -H "Content-Type:application/json" -d @Patient.json https://localhost:44324/api/Patientdata/updatePatient/{id}
 
-#Challenges Faced During the Project
+# Challenges Faced During the Project
 1)Managing foreign key constraints, particularly with the BloodGroupId in the Patients table.
+
 2)Ensuring the consistency and integrity of patient records, especially when dealing with concurrent data access and modifications.
+
 3)Efficiently handling errors and debugging issues during development and testing.
 
 # License
