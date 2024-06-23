@@ -12,7 +12,7 @@ Appointment Tracking: Enables doctors to monitor the number of patients register
 Registration Limit Control: Allows doctors to set a limit on the number of patient registrations and close registration when the limit is reached.
 Notification System: Sends notifications to patients and doctors regarding appointment confirmations, cancellations, and other important updates.
 
-#Technologies Used
+# Technologies Used
 Backend: ASP.NET Web API, Entity Framework
 Frontend: HTML, CSS, Bootstrap
 Database: Microsoft SQL Server
