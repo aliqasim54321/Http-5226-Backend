@@ -32,7 +32,7 @@ Update Patient: POST /api/PatientsData/UpdatePatient/{id}
 
 Delete Patient: POST /api/PatientsData/DeletePatient/{id}
 
-# Retriving data from yhe command prompt
+# Retriving data from the command prompt
 Get a List of Patient curl https://localhost:44324/api/Patientdata/listPatient
 
 Get a Single Patient curl https://localhost:44324/api/Patientdata/findPatient/{id}
